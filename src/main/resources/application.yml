@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: YK-ERP
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: zyk
+    password: 123456
+    url: jdbc:mysql://localhost:3306/project?useUnicode=true&characterEncoding=utf8&useCursorFetch=true&defaultFetchSize=500&allowMultiQueries=true&rewriteBatchedStatements=true&useSSL=false&allowPublicKeyRetrieval=true
+
+#  data:
+#    redis:
+#      port: 6379
+#      host: 127.0.0.1
+
+server:
+  port: 1223
+  servlet:
+    context-path: /yk-erp
