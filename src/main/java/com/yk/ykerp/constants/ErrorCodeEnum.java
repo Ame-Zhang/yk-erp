@@ -1,8 +1,6 @@
 package com.yk.ykerp.constants;
 
 
-import lombok.Data;
-
 /**
  * description
  *
