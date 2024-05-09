@@ -1,6 +1,7 @@
 package com.yk.ykerp.common;
 
 import com.yk.ykerp.constants.ErrorCodeEnum;
+import com.yk.ykerp.exception.YkException;
 import lombok.Data;
 
 /**
@@ -25,35 +26,52 @@ public class R<T extends CommonResponse> {
         this.response = response;
     }
 
-    public R(ErrorCodeEnum codeEnum, T response) {
-        this.code = codeEnum.getCode();
-        this.msg = codeEnum.getMsg();
-        this.response = response;
+    /**
+     * 响应1
+     */
+    private static R<CommonResponse> response(String code, String msg , CommonResponse response) {
+        return new R<>(code ,msg, response);
     }
 
-    public R(ErrorCodeEnum codeEnum) {
-        this.code = codeEnum.getCode();
-        this.msg = codeEnum.getMsg();
+    /**
+     * 响应2
+     */
+    private static R<CommonResponse> response(ErrorCodeEnum errorCodeEnum , CommonResponse response) {
+        return new R<>(errorCodeEnum.getCode() ,errorCodeEnum.getMsg() , response);
     }
 
     /**
      * 成功
      */
     public static R<CommonResponse> success(CommonResponse response) {
-        return new R<>(ErrorCodeEnum.SUCCESS, response);
+        return R.response(ErrorCodeEnum.SUCCESS, response);
     }
 
     /**
-     * 失败
+     * 失败1
      */
     public static R fail() {
-        return new R<>(ErrorCodeEnum.FAIL);
+        return R.response(ErrorCodeEnum.FAIL, null);
     }
 
     /**
-     * 失败
+     * 失败2
      */
     public static R fail(ErrorCodeEnum codeEnum) {
-        return new R<>(codeEnum);
+        return R.response(codeEnum, null);
+    }
+
+    /**
+     * 失败3
+     */
+    public static R fail(String code , String msg) {
+        return R.response(code ,msg , null);
+    }
+
+    /**
+     * 失败4
+     */
+    public static R fail(YkException e) {
+        return R.response(e.getCode() ,e.getMessage() , null);
     }
 }
