@@ -29,21 +29,21 @@ public class R<T extends CommonResponse> {
     /**
      * 响应1
      */
-    private static R<CommonResponse> response(String code, String msg , CommonResponse response) {
+    private static <T extends CommonResponse> R<T> response(String code, String msg , T response) {
         return new R<>(code ,msg, response);
     }
 
     /**
      * 响应2
      */
-    private static R<CommonResponse> response(ErrorCodeEnum errorCodeEnum , CommonResponse response) {
+    private static <T extends CommonResponse> R<T> response(ErrorCodeEnum errorCodeEnum , T response) {
         return new R<>(errorCodeEnum.getCode() ,errorCodeEnum.getMsg() , response);
     }
 
     /**
      * 成功
      */
-    public static R<CommonResponse> success(CommonResponse response) {
+    public static <T extends CommonResponse> R<T> success(T response) {
         return R.response(ErrorCodeEnum.SUCCESS, response);
     }
 
