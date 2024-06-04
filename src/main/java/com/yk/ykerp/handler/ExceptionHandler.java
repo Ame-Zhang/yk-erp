@@ -1,7 +1,8 @@
-package com.yk.ykerp.exception;
+package com.yk.ykerp.handler;
 
 import com.yk.ykerp.common.R;
 import com.yk.ykerp.constants.ErrorCodeEnum;
+import com.yk.ykerp.exception.YkException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.sql.SQLException;

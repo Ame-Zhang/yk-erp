@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@MapperScan("com.yk.ykerp.mapper")
+@MapperScan("com.yk.ykerp.dao")
 @EnableScheduling
 public class YkErpApplication {
 
