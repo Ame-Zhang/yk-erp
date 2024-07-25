@@ -40,6 +40,26 @@ public class YkUser extends BaseEntity{
     private String eamil;
 
     /**
+     * 职位
+     */
+    private String position;
+
+    /**
+     * 部门
+     */
+    private String department;
+
+    /**
+     * 用户状态
+     */
+    private String userStatus;
+
+    /**
+     * 是否系统自带数据
+     */
+    private String systemFlag;
+
+    /**
      * 备注
      */
     private String remark;

@@ -1,5 +1,8 @@
 package com.yk.ykerp.cache;
 
+import java.util.Collection;
+import java.util.Map;
+
 public interface CacheOperator<T> {
 
     /**
@@ -29,7 +32,7 @@ public interface CacheOperator<T> {
      * @param key
      * @return
      */
-    T get(String key, Boolean isUpdateLastAccess);
+    T get(String key,boolean isUpdateLastAccess);
 
     /**
      * 移除缓存
@@ -37,5 +40,28 @@ public interface CacheOperator<T> {
      */
     void remove(String... key);
 
+    /**
+     * 判断key是否存在于缓存
+     * @param key
+     * @return
+     */
+    boolean contains(String key);
 
+    /**
+     * 获取缓存中所有key
+     * @return
+     */
+    Collection<String> getAllKeys();
+
+    /**
+     * 获取缓存中所有value
+     * @return
+     */
+    Collection<T> getAllValues();
+
+    /**
+     * 获取缓存中所有key和value
+     * @return
+     */
+    Map<String, T> getAllKeyValues();
 }
